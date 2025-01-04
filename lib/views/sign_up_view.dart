@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:simple_shopping_app/views/home_view.dart';
 import 'package:simple_shopping_app/widgets/custom_text_form_field.dart';
 import 'package:validators/validators.dart';
@@ -11,7 +12,8 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  GlobalKey<FormState> formKey = GlobalKey(); // Initialising a formkey to control the form validation
+  GlobalKey<FormState> formKey =
+      GlobalKey(); // Initialising a formkey to control the form validation
 
   // Initializing the textfields controllers
   TextEditingController nameController = TextEditingController();
@@ -173,12 +175,12 @@ class _SignUpViewState extends State<SignUpView> {
                 style: TextStyle(color: Colors.black),
               ),
               onPressed: () {
-                // Here it performs navigation to go to the app
-                Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeView(),
+                  PageTransition(
+                    duration: const Duration(seconds: 1),
+                    type: PageTransitionType.fade,
+                    child: const HomeView(),
                   ),
                 );
               },
