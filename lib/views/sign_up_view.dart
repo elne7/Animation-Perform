@@ -165,6 +165,7 @@ class _SignUpViewState extends State<SignUpView> {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
+        // Display the dialog
         return AlertDialog(
           title: const Text('Signing Up'),
           content: const Text('Account Successfully Created!'),
@@ -175,8 +176,10 @@ class _SignUpViewState extends State<SignUpView> {
                 style: TextStyle(color: Colors.black),
               ),
               onPressed: () {
+                // Navigate to the home page
                 Navigator.push(
                   context,
+                  // Adding fade animation with page transition
                   PageTransition(
                     duration: const Duration(seconds: 1),
                     type: PageTransitionType.fade,
